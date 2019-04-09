@@ -262,7 +262,7 @@ abstract class SoapBase implements SoapInterface
             $path = '/sped-'
                 . $this->uid()
                 .'/'
-                . $this->certificate->getCnpj()
+                . (strlen($this->certificate->getCnpj())==14 ? $this->certificate->getCnpj() : $this->certificate->getCpf()) 
                 . '/' ;
             $folderRealPath = sys_get_temp_dir().$path;
         }
